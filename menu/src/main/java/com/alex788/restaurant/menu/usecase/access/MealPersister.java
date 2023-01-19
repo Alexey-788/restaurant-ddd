@@ -1,4 +1,4 @@
-package com.alex788.restaurant.menu.access;
+package com.alex788.restaurant.menu.usecase.access;
 
 import com.alex788.restaurant.menu.domain.Meal;
 

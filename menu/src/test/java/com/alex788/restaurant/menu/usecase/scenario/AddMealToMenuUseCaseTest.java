@@ -2,8 +2,8 @@ package com.alex788.restaurant.menu.usecase.scenario;
 
 import com.alex788.restaurant.menu.domain.Meal;
 import com.alex788.restaurant.menu.domain.value_object.MealId;
-import com.alex788.restaurant.menu.error.AddMealToMenuUseCaseError;
 import com.alex788.restaurant.menu.usecase.AddMealToMenu;
+import com.alex788.restaurant.menu.usecase.error.AddMealToMenuUseCaseError;
 import io.vavr.control.Either;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

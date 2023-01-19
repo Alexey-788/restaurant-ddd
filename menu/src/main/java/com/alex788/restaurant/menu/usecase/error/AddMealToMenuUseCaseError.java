@@ -1,4 +1,4 @@
-package com.alex788.restaurant.menu.error;
+package com.alex788.restaurant.menu.usecase.error;
 
 import com.alex788.restaurant.common.error.UseCaseError;
 import com.alex788.restaurant.menu.domain.error.AddMealToMenuError;
