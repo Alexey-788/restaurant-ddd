@@ -1,5 +1,6 @@
 package com.alex788.restaurant.menu.domain;
 
+import com.alex788.restaurant.menu.domain.error.AddMealToMenuError;
 import com.alex788.restaurant.menu.domain.invariant.MealNameIsUnique;
 import com.alex788.restaurant.menu.domain.value_object.MealDescription;
 import com.alex788.restaurant.menu.domain.value_object.MealId;
@@ -20,7 +21,7 @@ class MealTest {
         MealDescription mealDescription = mealDescription();
         MealPrice mealPrice = mealPrice();
 
-        Either<Meal.InvariantError, Meal> mealEth = Meal.addToMenu(
+        Either<AddMealToMenuError, Meal> mealEth = Meal.addToMenu(
                 mealIdGeneratorThatGenerate(mealId),
                 mealNameIsUnique(),
                 mealName,
@@ -38,7 +39,7 @@ class MealTest {
 
     @Test
     void addToMenu_MealWithSameNameExists_ReturnsError() {
-        Either<Meal.InvariantError, Meal> mealEth = Meal.addToMenu(
+        Either<AddMealToMenuError, Meal> mealEth = Meal.addToMenu(
                 mealIdGeneratorThatGenerate(mealId()),
                 mealNameNotUnique(),
                 mealName(),
@@ -47,7 +48,7 @@ class MealTest {
         );
 
         assertTrue(mealEth.isLeft());
-        assertInstanceOf(Meal.NameMustBeUniqueError.class, mealEth.getLeft());
+        assertInstanceOf(AddMealToMenuError.NameMustBeUniqueError.class, mealEth.getLeft());
     }
 
     MealId.MealIdGenerator mealIdGeneratorThatGenerate(MealId id) {

@@ -1,6 +1,6 @@
 package com.alex788.restaurant.menu.domain.value_object;
 
-import com.alex788.restaurant.common.error.BusinessError;
+import com.alex788.restaurant.menu.domain.value_object.error.MealNameError;
 import io.vavr.control.Either;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -14,17 +14,11 @@ public class MealName {
 
     private final String value;
 
-    public static Either<Error, MealName> from(String name) {
+    public static Either<MealNameError, MealName> from(String name) {
         if (name.isBlank()) {
-            return Either.left(new BlankError());
+            return Either.left(new MealNameError.BlankError());
         }
 
         return Either.right(new MealName(name));
-    }
-
-    public interface Error extends BusinessError {
-    }
-
-    public static class BlankError implements Error {
     }
 }

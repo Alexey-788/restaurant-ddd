@@ -1,6 +1,6 @@
 package com.alex788.restaurant.menu.domain.value_object;
 
-import com.alex788.restaurant.common.error.BusinessError;
+import com.alex788.restaurant.menu.domain.value_object.error.MealPriceError;
 import io.vavr.control.Either;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -18,24 +18,14 @@ public class MealPrice {
 
     private final BigDecimal value;
 
-    public static Either<Error, MealPrice> from(BigDecimal price) {
+    public static Either<MealPriceError, MealPrice> from(BigDecimal price) {
         if (price.scale() > SCALE) {
-            return Either.left(new WrongScaleError());
+            return Either.left(new MealPriceError.WrongScaleError());
         }
         if (price.compareTo(BigDecimal.ZERO) < 0) { // price < 0
-            return Either.left(new NegativeError());
+            return Either.left(new MealPriceError.NegativeError());
         }
 
         return Either.right(new MealPrice(price));
-    }
-
-    public interface Error extends BusinessError {
-    }
-
-    public static class WrongScaleError implements Error {
-    }
-
-    public static class NegativeError implements Error {
-
     }
 }

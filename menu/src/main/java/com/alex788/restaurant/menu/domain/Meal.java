@@ -1,6 +1,6 @@
 package com.alex788.restaurant.menu.domain;
 
-import com.alex788.restaurant.common.error.BusinessError;
+import com.alex788.restaurant.menu.domain.error.AddMealToMenuError;
 import com.alex788.restaurant.menu.domain.invariant.MealNameIsUnique;
 import com.alex788.restaurant.menu.domain.value_object.MealDescription;
 import com.alex788.restaurant.menu.domain.value_object.MealId;
@@ -20,7 +20,7 @@ public class Meal {
     private MealDescription description;
     private MealPrice price;
 
-    public static Either<InvariantError, Meal> addToMenu(
+    public static Either<AddMealToMenuError, Meal> addToMenu(
             MealId.MealIdGenerator idGenerator,
             MealNameIsUnique nameIsUnique,
             MealName name,
@@ -28,7 +28,7 @@ public class Meal {
             MealPrice price
     ) {
         if (!nameIsUnique.check(name)) {
-            return Either.left(new NameMustBeUniqueError());
+            return Either.left(new AddMealToMenuError.NameMustBeUniqueError());
         }
 
         return Either.right(
@@ -39,11 +39,5 @@ public class Meal {
                         price
                 )
         );
-    }
-
-    public interface InvariantError extends BusinessError {
-    }
-
-    public static class NameMustBeUniqueError implements InvariantError {
     }
 }

@@ -1,5 +1,6 @@
 package com.alex788.restaurant.menu.domain.value_object;
 
+import com.alex788.restaurant.menu.domain.value_object.error.MealPriceError;
 import io.vavr.control.Either;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -15,7 +16,7 @@ class MealPriceTest {
     void from_WithValidValue_CreatesSuccessfully(String valueInString) {
         BigDecimal value = new BigDecimal(valueInString);
 
-        Either<MealPrice.Error, MealPrice> mealPriceEth = MealPrice.from(value);
+        Either<MealPriceError, MealPrice> mealPriceEth = MealPrice.from(value);
 
         assertTrue(mealPriceEth.isRight());
         MealPrice mealPrice = mealPriceEth.get();
@@ -27,10 +28,10 @@ class MealPriceTest {
     void from_WithWrongScaleValue_ReturnsError(String valueInString) {
         BigDecimal value = new BigDecimal(valueInString);
 
-        Either<MealPrice.Error, MealPrice> mealPriceEth = MealPrice.from(value);
+        Either<MealPriceError, MealPrice> mealPriceEth = MealPrice.from(value);
 
         assertTrue(mealPriceEth.isLeft());
-        assertInstanceOf(MealPrice.WrongScaleError.class, mealPriceEth.getLeft());
+        assertInstanceOf(MealPriceError.WrongScaleError.class, mealPriceEth.getLeft());
     }
 
     @ParameterizedTest
@@ -38,9 +39,9 @@ class MealPriceTest {
     void from_WithNegativeValue_ReturnsError(String valueInString) {
         BigDecimal value = new BigDecimal(valueInString);
 
-        Either<MealPrice.Error, MealPrice> mealPriceEth = MealPrice.from(value);
+        Either<MealPriceError, MealPrice> mealPriceEth = MealPrice.from(value);
 
         assertTrue(mealPriceEth.isLeft());
-        assertInstanceOf(MealPrice.NegativeError.class, mealPriceEth.getLeft());
+        assertInstanceOf(MealPriceError.NegativeError.class, mealPriceEth.getLeft());
     }
 }

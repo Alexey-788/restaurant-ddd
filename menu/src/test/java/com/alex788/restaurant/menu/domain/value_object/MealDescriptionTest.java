@@ -1,5 +1,6 @@
 package com.alex788.restaurant.menu.domain.value_object;
 
+import com.alex788.restaurant.menu.domain.value_object.error.MealDescriptionError;
 import io.vavr.control.Either;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -11,7 +12,7 @@ class MealDescriptionTest {
     @ParameterizedTest
     @ValueSource(strings = {"Description", "Long description"})
     void from_WithValidValue_CreatesSuccessfully(String value) {
-        Either<MealDescription.Error, MealDescription> mealDescriptionEth = MealDescription.from(value);
+        Either<MealDescriptionError, MealDescription> mealDescriptionEth = MealDescription.from(value);
 
         assertTrue(mealDescriptionEth.isRight());
         MealDescription mealDescription = mealDescriptionEth.get();
@@ -21,9 +22,9 @@ class MealDescriptionTest {
     @ParameterizedTest
     @ValueSource(strings = {"", "\n \t"})
     void from_WithBlankValue_ReturnsError(String value) {
-        Either<MealDescription.Error, MealDescription> mealDescriptionEth = MealDescription.from(value);
+        Either<MealDescriptionError, MealDescription> mealDescriptionEth = MealDescription.from(value);
 
         assertTrue(mealDescriptionEth.isLeft());
-        assertInstanceOf(MealDescription.BlankError.class, mealDescriptionEth.getLeft());
+        assertInstanceOf(MealDescriptionError.BlankError.class, mealDescriptionEth.getLeft());
     }
 }
