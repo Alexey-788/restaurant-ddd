@@ -44,6 +44,36 @@ public class Fixtures {
         return MealPrice.from(value).get();
     }
 
+    public static Meal newMeal() {
+        return Meal.addToMenu(
+                mealIdGeneratorThatReturns(mealId()),
+                mealNameIsUnique(),
+                mealName(),
+                mealDescription(),
+                mealPrice()
+        ).get();
+    }
+
+    public static Meal newMeal(MealId mealId) {
+        return Meal.addToMenu(
+                mealIdGeneratorThatReturns(mealId),
+                mealNameIsUnique(),
+                mealName(),
+                mealDescription(),
+                mealPrice()
+        ).get();
+    }
+
+    public static Meal newMeal(MealName mealName) {
+        return Meal.addToMenu(
+                mealIdGeneratorThatReturns(mealId()),
+                mealNameIsUnique(),
+                mealName,
+                mealDescription(),
+                mealPrice()
+        ).get();
+    }
+
     public static MealId.MealIdGenerator mealIdGeneratorThatReturns(MealId mealId) {
         return () -> mealId;
     }

@@ -36,7 +36,7 @@ public class AddMealToMenuUseCase implements AddMealToMenu {
         }
 
         Meal meal = mealEth.get();
-        persister.persist(meal);
+        persister.save(meal);
 
         return Either.right(meal.getId());
     }

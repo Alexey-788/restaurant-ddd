@@ -13,7 +13,7 @@ public class Fixtures {
         public List<Meal> storage = new ArrayList<>();
 
         @Override
-        public void persist(Meal meal) {
+        public void save(Meal meal) {
             storage.add(meal);
         }
     }
