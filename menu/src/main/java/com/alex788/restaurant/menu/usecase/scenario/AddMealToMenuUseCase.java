@@ -6,6 +6,7 @@ import com.alex788.restaurant.menu.domain.invariant.MealNameIsUnique;
 import com.alex788.restaurant.menu.domain.value_object.MealId;
 import com.alex788.restaurant.menu.usecase.AddMealToMenu;
 import com.alex788.restaurant.menu.usecase.access.MealPersister;
+import com.alex788.restaurant.menu.usecase.error.AddMealToMenuErrorMapper;
 import com.alex788.restaurant.menu.usecase.error.AddMealToMenuUseCaseError;
 import io.vavr.control.Either;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,7 @@ public class AddMealToMenuUseCase implements AddMealToMenu {
     private final MealId.MealIdGenerator idGenerator;
     private final MealNameIsUnique nameIsUnique;
 
-    private final AddMealToMenuUseCaseError.ErrorMapper errorMapper = new AddMealToMenuUseCaseError.ErrorMapper();
+    private final AddMealToMenuErrorMapper errorMapper = new AddMealToMenuErrorMapper();
 
     @Override
     public Either<AddMealToMenuUseCaseError, MealId> execute(AddMealToMenuRequest request) {

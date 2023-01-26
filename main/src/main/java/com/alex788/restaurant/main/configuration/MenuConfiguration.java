@@ -4,6 +4,7 @@ import com.alex788.restaurant.menu.domain.invariant.MealNameIsUnique;
 import com.alex788.restaurant.menu.domain.value_object.MealId;
 import com.alex788.restaurant.menu.postgres_persistence.PostgresMealIdGenerator;
 import com.alex788.restaurant.menu.postgres_persistence.PostgresMealRepository;
+import com.alex788.restaurant.menu.rest.endpoint.add_meal_to_menu.AddMealToMenuEndpoint;
 import com.alex788.restaurant.menu.usecase.AddMealToMenu;
 import com.alex788.restaurant.menu.usecase.access.MealExtracter;
 import com.alex788.restaurant.menu.usecase.access.MealPersister;
@@ -41,5 +42,10 @@ public class MenuConfiguration {
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     public MealId.MealIdGenerator idGenerator(DataSource dataSource) {
         return new PostgresMealIdGenerator(dataSource);
+    }
+
+    @Bean
+    public AddMealToMenuEndpoint addMealToMenuEndpoint(AddMealToMenu addMealToMenu) {
+        return new AddMealToMenuEndpoint(addMealToMenu);
     }
 }

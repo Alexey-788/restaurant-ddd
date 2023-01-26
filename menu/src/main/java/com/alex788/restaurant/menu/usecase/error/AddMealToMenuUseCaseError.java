@@ -1,18 +1,21 @@
 package com.alex788.restaurant.menu.usecase.error;
 
 import com.alex788.restaurant.common.error.UseCaseError;
-import com.alex788.restaurant.menu.domain.error.AddMealToMenuError;
 
 public interface AddMealToMenuUseCaseError extends UseCaseError {
 
-    class NameMustBeUniqueError implements AddMealToMenuUseCaseError {
-    }
+    String access(ErrorMessageMapper errorMessageParser);
 
-    class ErrorMapper implements AddMealToMenuError.ErrorMapper {
+    class NameMustBeUniqueError implements AddMealToMenuUseCaseError {
 
         @Override
-        public AddMealToMenuUseCaseError visit(AddMealToMenuError.NameMustBeUniqueError error) {
-            return new AddMealToMenuUseCaseError.NameMustBeUniqueError();
+        public String access(ErrorMessageMapper errorMessageParser) {
+            return errorMessageParser.visit(this);
         }
+    }
+
+    interface ErrorMessageMapper {
+
+        String visit(NameMustBeUniqueError error);
     }
 }
