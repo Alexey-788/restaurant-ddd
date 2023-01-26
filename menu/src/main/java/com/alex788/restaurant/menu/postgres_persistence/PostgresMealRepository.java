@@ -1,6 +1,7 @@
 package com.alex788.restaurant.menu.postgres_persistence;
 
 import com.alex788.restaurant.menu.domain.Meal;
+import com.alex788.restaurant.menu.domain.value_object.MealId;
 import com.alex788.restaurant.menu.domain.value_object.MealName;
 import com.alex788.restaurant.menu.usecase.access.MealExtracter;
 import com.alex788.restaurant.menu.usecase.access.MealPersister;
@@ -75,5 +76,11 @@ public class PostgresMealRepository implements MealPersister, MealExtracter {
     public Optional<Meal> getByName(MealName name) {
         Map<String, ?> params = Map.of("name", name.getValue());
         return jdbcTemplate.query("SELECT * FROM meal.meal WHERE name = :name;", params, mealResultSetExtractor);
+    }
+
+    @Override
+    public Optional<Meal> getById(MealId id) {
+        Map<String, ?> params = Map.of("id", id.getValue());
+        return jdbcTemplate.query("SELECT * FROM meal.meal WHERE id = :id;", params, mealResultSetExtractor);
     }
 }

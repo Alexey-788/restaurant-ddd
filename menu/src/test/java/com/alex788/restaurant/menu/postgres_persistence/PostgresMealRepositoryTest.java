@@ -88,6 +88,27 @@ class PostgresMealRepositoryTest {
         assertTrue(resultMealOpt.isEmpty());
     }
 
+    @Test
+    void getById_WhenMealExists_ReturnsMeal() {
+        MealId mealId = mealId();
+        Meal meal = newMeal(mealId);
+        repository.save(meal);
+
+        Optional<Meal> resultMealOpt = repository.getById(mealId);
+
+        assertTrue(resultMealOpt.isPresent());
+        assertTrue(mealsAreEquals(meal, resultMealOpt.get()));
+    }
+
+    @Test
+    void getById_WhenMealNotExists_ReturnsEmptyOpt() {
+        MealId mealId = mealId();
+
+        Optional<Meal> resultMealOpt = repository.getById(mealId);
+
+        assertTrue(resultMealOpt.isEmpty());
+    }
+
     boolean dbContainsMeal(Meal meal) {
         Map<String, ?> params = Map.of(
                 "id", meal.getId().getValue(),
