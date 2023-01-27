@@ -2,7 +2,8 @@ package com.alex788.restaurant.menu.rest.endpoint.add_meal_to_menu;
 
 import com.alex788.restaurant.menu.domain.value_object.MealId;
 import com.alex788.restaurant.menu.rest.EndpointUrl;
-import com.alex788.restaurant.menu.rest.ErrorMessage;
+import com.alex788.restaurant.menu.rest.model.ErrorMessage;
+import com.alex788.restaurant.menu.rest.model.MealModel;
 import com.alex788.restaurant.menu.usecase.AddMealToMenu;
 import com.alex788.restaurant.menu.usecase.error.AddMealToMenuUseCaseError;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -10,13 +11,12 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.vavr.control.Either;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.math.BigDecimal;
 
 @RestController
 @AllArgsConstructor
@@ -55,15 +55,12 @@ public class AddMealToMenuEndpoint {
 
     @Getter
     @JsonSerialize
+    @NoArgsConstructor
     @AllArgsConstructor
     public static class Request {
 
         @JsonProperty
-        private final String name;
-        @JsonProperty
-        private final String description;
-        @JsonProperty
-        private final BigDecimal price;
+        private MealModel mealModel;
     }
 
     @Getter

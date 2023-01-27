@@ -3,7 +3,8 @@ package com.alex788.restaurant.menu.rest.endpoint.add_meal_to_menu;
 import com.alex788.restaurant.menu.domain.value_object.MealDescription;
 import com.alex788.restaurant.menu.domain.value_object.MealName;
 import com.alex788.restaurant.menu.domain.value_object.MealPrice;
-import com.alex788.restaurant.menu.rest.ErrorMessage;
+import com.alex788.restaurant.menu.rest.model.ErrorMessage;
+import com.alex788.restaurant.menu.rest.model.MealModel;
 import com.alex788.restaurant.menu.usecase.AddMealToMenu;
 import io.vavr.control.Either;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,7 +31,7 @@ class AddMealToMenuRequestValidatorTest {
         MealDescription mealDescription = mealDescription();
         MealPrice mealPrice = mealPrice();
         AddMealToMenuEndpoint.Request request =new AddMealToMenuEndpoint.Request(
-                mealName.getValue(), mealDescription.getValue(), mealPrice.getValue()
+                new MealModel(mealName.getValue(), mealDescription.getValue(), mealPrice.getValue())
         );
 
         Either<ErrorMessage, AddMealToMenu.AddMealToMenuRequest> useCaseRequestEth = validator.validate(request);
@@ -48,7 +49,7 @@ class AddMealToMenuRequestValidatorTest {
         MealDescription mealDescription = mealDescription();
         MealPrice mealPrice = mealPrice();
         AddMealToMenuEndpoint.Request request =new AddMealToMenuEndpoint.Request(
-                invalidName, mealDescription.getValue(), mealPrice.getValue()
+                new MealModel(invalidName, mealDescription.getValue(), mealPrice.getValue())
         );
 
         Either<ErrorMessage, AddMealToMenu.AddMealToMenuRequest> useCaseRequestEth = validator.validate(request);
@@ -64,7 +65,7 @@ class AddMealToMenuRequestValidatorTest {
         String invalidDescription = "";
         MealPrice mealPrice = mealPrice();
         AddMealToMenuEndpoint.Request request =new AddMealToMenuEndpoint.Request(
-                mealName.getValue(), invalidDescription, mealPrice.getValue()
+                new MealModel(mealName.getValue(), invalidDescription, mealPrice.getValue())
         );
 
         Either<ErrorMessage, AddMealToMenu.AddMealToMenuRequest> useCaseRequestEth = validator.validate(request);
@@ -80,7 +81,7 @@ class AddMealToMenuRequestValidatorTest {
         MealDescription mealDescription = mealDescription();
         BigDecimal invalidPrice = new BigDecimal(-10);
         AddMealToMenuEndpoint.Request request =new AddMealToMenuEndpoint.Request(
-                mealName.getValue(), mealDescription.getValue(), invalidPrice
+                new MealModel(mealName.getValue(), mealDescription.getValue(), invalidPrice)
         );
 
         Either<ErrorMessage, AddMealToMenu.AddMealToMenuRequest> useCaseRequestEth = validator.validate(request);
@@ -96,7 +97,7 @@ class AddMealToMenuRequestValidatorTest {
         String invalidDescription = "";
         MealPrice mealPrice = mealPrice();
         AddMealToMenuEndpoint.Request request =new AddMealToMenuEndpoint.Request(
-                invalidName, invalidDescription, mealPrice.getValue()
+                new MealModel(invalidName, invalidDescription, mealPrice.getValue())
         );
 
         Either<ErrorMessage, AddMealToMenu.AddMealToMenuRequest> useCaseRequestEth = validator.validate(request);
@@ -112,7 +113,7 @@ class AddMealToMenuRequestValidatorTest {
         String invalidDescription = "";
         BigDecimal invalidPrice = new BigDecimal(-10);
         AddMealToMenuEndpoint.Request request =new AddMealToMenuEndpoint.Request(
-                invalidName, invalidDescription, invalidPrice
+                new MealModel(invalidName, invalidDescription, invalidPrice)
         );
 
         Either<ErrorMessage, AddMealToMenu.AddMealToMenuRequest> useCaseRequestEth = validator.validate(request);

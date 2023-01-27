@@ -1,4 +1,4 @@
-package com.alex788.restaurant.menu.rest;
+package com.alex788.restaurant.menu.rest.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;

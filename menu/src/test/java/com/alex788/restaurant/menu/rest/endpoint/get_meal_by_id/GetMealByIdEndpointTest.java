@@ -2,6 +2,7 @@ package com.alex788.restaurant.menu.rest.endpoint.get_meal_by_id;
 
 import com.alex788.restaurant.menu.domain.Meal;
 import com.alex788.restaurant.menu.rest.EndpointUrl;
+import com.alex788.restaurant.menu.rest.model.MealModel;
 import com.alex788.restaurant.menu.usecase.GetMealById;
 import com.alex788.restaurant.menu.usecase.dto.MealInfo;
 import com.alex788.restaurant.menu.usecase.error.GetMealByIdUseCaseError;
@@ -42,11 +43,11 @@ class GetMealByIdEndpointTest {
 
         String url = urlForMealWithId(meal.getId().getValue());
 
-        GetMealByIdEndpoint.Response expectedResponse = new GetMealByIdEndpoint.Response(
+        GetMealByIdEndpoint.Response expectedResponse = new GetMealByIdEndpoint.Response(new MealModel(
                 meal.getName().getValue(),
                 meal.getDescription().getValue(),
                 meal.getPrice().getValue()
-        );
+        ));
 
         mvc.perform(
                 get(url).contentType(MediaType.APPLICATION_JSON)

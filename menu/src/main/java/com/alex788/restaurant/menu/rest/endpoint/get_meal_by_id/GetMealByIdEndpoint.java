@@ -2,7 +2,8 @@ package com.alex788.restaurant.menu.rest.endpoint.get_meal_by_id;
 
 import com.alex788.restaurant.menu.domain.value_object.MealId;
 import com.alex788.restaurant.menu.rest.EndpointUrl;
-import com.alex788.restaurant.menu.rest.ErrorMessage;
+import com.alex788.restaurant.menu.rest.model.ErrorMessage;
+import com.alex788.restaurant.menu.rest.model.MealModel;
 import com.alex788.restaurant.menu.usecase.GetMealById;
 import com.alex788.restaurant.menu.usecase.dto.MealInfo;
 import com.alex788.restaurant.menu.usecase.error.GetMealByIdUseCaseError;
@@ -16,8 +17,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.math.BigDecimal;
 
 @RestController
 @AllArgsConstructor
@@ -37,7 +36,7 @@ public class GetMealByIdEndpoint {
         }
 
         MealInfo mealInfo = mealInfoEth.get();
-        Response response = Response.from(mealInfo);
+        Response response = new Response(MealModel.from(mealInfo));
 
         return ResponseEntity.ok(response);
     }
@@ -57,18 +56,6 @@ public class GetMealByIdEndpoint {
     public static class Response {
 
         @JsonProperty
-        private final String name;
-        @JsonProperty
-        private final String description;
-        @JsonProperty
-        private final BigDecimal price;
-
-        public static Response from(MealInfo mealInfo) {
-            return new Response(
-                    mealInfo.getName().getValue(),
-                    mealInfo.getDescription().getValue(),
-                    mealInfo.getPrice().getValue()
-            );
-        }
+        private final MealModel mealModel;
     }
 }

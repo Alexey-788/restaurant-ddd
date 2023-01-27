@@ -6,6 +6,7 @@ import com.alex788.restaurant.menu.domain.value_object.MealName;
 import com.alex788.restaurant.menu.domain.value_object.MealPrice;
 import com.alex788.restaurant.menu.rest.EndpointUrl;
 import com.alex788.restaurant.menu.rest.endpoint.add_meal_to_menu.AddMealToMenuEndpoint;
+import com.alex788.restaurant.menu.rest.model.MealModel;
 import com.alex788.restaurant.menu.usecase.AddMealToMenu;
 import com.alex788.restaurant.menu.usecase.error.AddMealToMenuUseCaseError;
 import io.vavr.control.Either;
@@ -47,7 +48,7 @@ class AddMealToMenuEndpointTest {
         MealPrice mealPrice = mealPrice();
 
         AddMealToMenuEndpoint.Request request = new AddMealToMenuEndpoint.Request(
-                mealName.getValue(), mealDescription.getValue(), mealPrice.getValue()
+                new MealModel(mealName.getValue(), mealDescription.getValue(), mealPrice.getValue())
         );
 
         MealId mealId = mealId();
@@ -79,7 +80,7 @@ class AddMealToMenuEndpointTest {
         MealPrice mealPrice = mealPrice();
 
         AddMealToMenuEndpoint.Request request = new AddMealToMenuEndpoint.Request(
-                mealName.getValue(), mealDescription.getValue(), mealPrice.getValue()
+                new MealModel(mealName.getValue(), mealDescription.getValue(), mealPrice.getValue())
         );
 
         doReturn(Either.left(new AddMealToMenuUseCaseError.NameMustBeUniqueError()))
@@ -106,7 +107,7 @@ class AddMealToMenuEndpointTest {
         MealPrice mealPrice = mealPrice();
 
         AddMealToMenuEndpoint.Request request = new AddMealToMenuEndpoint.Request(
-                "", "", mealPrice.getValue()
+                new MealModel("", "", mealPrice.getValue())
         );
 
         verify(addMealToMenu, never()).execute(any());

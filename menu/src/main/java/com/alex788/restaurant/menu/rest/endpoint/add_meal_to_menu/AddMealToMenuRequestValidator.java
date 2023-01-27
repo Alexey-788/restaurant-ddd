@@ -6,16 +6,16 @@ import com.alex788.restaurant.menu.domain.value_object.MealPrice;
 import com.alex788.restaurant.menu.domain.value_object.error.MealDescriptionError;
 import com.alex788.restaurant.menu.domain.value_object.error.MealNameError;
 import com.alex788.restaurant.menu.domain.value_object.error.MealPriceError;
-import com.alex788.restaurant.menu.rest.ErrorMessage;
+import com.alex788.restaurant.menu.rest.model.ErrorMessage;
 import com.alex788.restaurant.menu.usecase.AddMealToMenu;
 import io.vavr.control.Either;
 
 public class AddMealToMenuRequestValidator {
 
     public Either<ErrorMessage, AddMealToMenu.AddMealToMenuRequest> validate(AddMealToMenuEndpoint.Request request) {
-        Either<MealNameError, MealName> mealNameEth = MealName.from(request.getName());
-        Either<MealDescriptionError, MealDescription> mealDescriptionEth = MealDescription.from(request.getDescription());
-        Either<MealPriceError, MealPrice> mealPriceEth = MealPrice.from(request.getPrice());
+        Either<MealNameError, MealName> mealNameEth = MealName.from(request.getMealModel().getName());
+        Either<MealDescriptionError, MealDescription> mealDescriptionEth = MealDescription.from(request.getMealModel().getDescription());
+        Either<MealPriceError, MealPrice> mealPriceEth = MealPrice.from(request.getMealModel().getPrice());
 
         ErrorBuilder errorBuilder = new ErrorBuilder();
 

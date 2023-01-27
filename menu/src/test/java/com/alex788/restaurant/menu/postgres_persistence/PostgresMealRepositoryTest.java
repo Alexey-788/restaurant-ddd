@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import javax.sql.DataSource;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -109,6 +110,28 @@ class PostgresMealRepositoryTest {
         assertTrue(resultMealOpt.isEmpty());
     }
 
+    @Test
+    void getAll_ThreeMealsInStorage_ReturnsThreeMeals() {
+        cleanMealTable();
+        List<Meal> meals = List.of(newMeal(), newMeal(), newMeal());
+        meals.forEach(repository::save);
+
+        List<Meal> resultMeals = repository.getAll();
+
+        assertEquals(meals.size(), resultMeals.size());
+        for (int i = 0; i < meals.size(); i++) {
+            assertTrue(mealsAreEquals(meals.get(i), resultMeals.get(i)));
+        }
+    }
+
+    @Test
+    void getAll_NoMealsInStorage_ReturnsEmptyList() {
+        cleanMealTable();
+        List<Meal> resultMeals = repository.getAll();
+
+        assertEquals(0, resultMeals.size());
+    }
+
     boolean dbContainsMeal(Meal meal) {
         Map<String, ?> params = Map.of(
                 "id", meal.getId().getValue(),
@@ -133,5 +156,9 @@ class PostgresMealRepositoryTest {
                 meal1.getName().equals(meal2.getName()) &&
                 meal1.getDescription().equals(meal2.getDescription()) &&
                 meal1.getPrice().equals(meal2.getPrice());
+    }
+
+    void cleanMealTable() {
+        jdbcTemplate.update("TRUNCATE TABLE meal.meal;", Map.of());
     }
 }

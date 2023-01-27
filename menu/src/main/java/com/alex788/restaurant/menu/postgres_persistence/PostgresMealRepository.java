@@ -9,6 +9,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.sql.DataSource;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ public class PostgresMealRepository implements MealPersister, MealExtracter {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
     private final MealResultSetExtractor mealResultSetExtractor = new MealResultSetExtractor();
+    private final MealRowMapper mealRowMapper = new MealRowMapper();
 
     public PostgresMealRepository(DataSource dataSource) {
         this.jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
@@ -82,5 +84,10 @@ public class PostgresMealRepository implements MealPersister, MealExtracter {
     public Optional<Meal> getById(MealId id) {
         Map<String, ?> params = Map.of("id", id.getValue());
         return jdbcTemplate.query("SELECT * FROM meal.meal WHERE id = :id;", params, mealResultSetExtractor);
+    }
+
+    @Override
+    public List<Meal> getAll() {
+        return jdbcTemplate.query("SELECT * FROM meal.meal;", mealRowMapper);
     }
 }
