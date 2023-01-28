@@ -1,6 +1,6 @@
 package com.alex788.restaurant.shop.postgres_persistence;
 
-import com.alex788.restaurant.shop.domain.value_object.MealId;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

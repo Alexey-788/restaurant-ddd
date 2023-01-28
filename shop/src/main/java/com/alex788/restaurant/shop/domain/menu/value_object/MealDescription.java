@@ -1,6 +1,6 @@
-package com.alex788.restaurant.shop.domain.value_object;
+package com.alex788.restaurant.shop.domain.menu.value_object;
 
-import com.alex788.restaurant.shop.domain.value_object.error.MealDescriptionError;
+import com.alex788.restaurant.shop.domain.menu.value_object.error.MealDescriptionError;
 import io.vavr.control.Either;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

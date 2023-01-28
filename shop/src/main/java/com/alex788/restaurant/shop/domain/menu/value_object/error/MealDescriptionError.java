@@ -1,12 +1,12 @@
-package com.alex788.restaurant.shop.domain.value_object.error;
+package com.alex788.restaurant.shop.domain.menu.value_object.error;
 
 import com.alex788.restaurant.common.error.DomainError;
 
-public interface MealNameError extends DomainError {
+public interface MealDescriptionError extends DomainError {
 
     String accept(ErrorMessageMapper errorMessageMapper);
 
-    class BlankError implements MealNameError {
+    class BlankError implements MealDescriptionError {
 
         @Override
         public String accept(ErrorMessageMapper errorMessageMapper) {

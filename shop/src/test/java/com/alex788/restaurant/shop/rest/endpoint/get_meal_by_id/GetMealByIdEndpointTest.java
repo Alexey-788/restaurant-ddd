@@ -1,6 +1,6 @@
 package com.alex788.restaurant.shop.rest.endpoint.get_meal_by_id;
 
-import com.alex788.restaurant.shop.domain.Meal;
+import com.alex788.restaurant.shop.domain.menu.Meal;
 import com.alex788.restaurant.shop.rest.EndpointUrl;
 import com.alex788.restaurant.shop.rest.model.MealModel;
 import com.alex788.restaurant.shop.usecase.GetMealById;

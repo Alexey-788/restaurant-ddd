@@ -1,9 +1,9 @@
 package com.alex788.restaurant.shop.usecase.scenario;
 
-import com.alex788.restaurant.shop.domain.Meal;
-import com.alex788.restaurant.shop.domain.error.AddMealToMenuError;
-import com.alex788.restaurant.shop.domain.invariant.MealNameIsUnique;
-import com.alex788.restaurant.shop.domain.value_object.MealId;
+import com.alex788.restaurant.shop.domain.menu.Meal;
+import com.alex788.restaurant.shop.domain.menu.error.AddMealToMenuError;
+import com.alex788.restaurant.shop.domain.menu.invariant.MealNameIsUnique;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealId;
 import com.alex788.restaurant.shop.usecase.AddMealToMenu;
 import com.alex788.restaurant.shop.usecase.access.MealPersister;
 import com.alex788.restaurant.shop.usecase.error.AddMealToMenuErrorMapper;

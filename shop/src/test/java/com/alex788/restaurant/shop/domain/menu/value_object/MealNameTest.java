@@ -1,6 +1,6 @@
-package com.alex788.restaurant.shop.domain.value_object;
+package com.alex788.restaurant.shop.domain.menu.value_object;
 
-import com.alex788.restaurant.shop.domain.value_object.error.MealNameError;
+import com.alex788.restaurant.shop.domain.menu.value_object.error.MealNameError;
 import io.vavr.control.Either;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;

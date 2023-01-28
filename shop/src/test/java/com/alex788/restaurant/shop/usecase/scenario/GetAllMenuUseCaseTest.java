@@ -1,6 +1,6 @@
 package com.alex788.restaurant.shop.usecase.scenario;
 
-import com.alex788.restaurant.shop.domain.Meal;
+import com.alex788.restaurant.shop.domain.menu.Meal;
 import com.alex788.restaurant.shop.usecase.access.MealExtracter;
 import com.alex788.restaurant.shop.usecase.dto.MealInfo;
 import org.junit.jupiter.api.BeforeEach;

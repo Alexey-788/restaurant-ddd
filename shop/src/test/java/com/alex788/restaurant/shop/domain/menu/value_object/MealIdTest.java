@@ -1,4 +1,4 @@
-package com.alex788.restaurant.shop.domain.value_object;
+package com.alex788.restaurant.shop.domain.menu.value_object;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;

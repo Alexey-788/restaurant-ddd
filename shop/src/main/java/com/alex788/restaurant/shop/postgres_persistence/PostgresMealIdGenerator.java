@@ -1,6 +1,6 @@
 package com.alex788.restaurant.shop.postgres_persistence;
 
-import com.alex788.restaurant.shop.domain.value_object.MealId;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealId;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;

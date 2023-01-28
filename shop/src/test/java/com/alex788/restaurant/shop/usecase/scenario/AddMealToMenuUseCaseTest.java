@@ -1,7 +1,7 @@
 package com.alex788.restaurant.shop.usecase.scenario;
 
-import com.alex788.restaurant.shop.domain.Meal;
-import com.alex788.restaurant.shop.domain.value_object.MealId;
+import com.alex788.restaurant.shop.domain.menu.Meal;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealId;
 import com.alex788.restaurant.shop.usecase.AddMealToMenu;
 import com.alex788.restaurant.shop.usecase.error.AddMealToMenuUseCaseError;
 import io.vavr.control.Either;

@@ -1,7 +1,7 @@
 package com.alex788.restaurant.main.configuration;
 
-import com.alex788.restaurant.shop.domain.invariant.MealNameIsUnique;
-import com.alex788.restaurant.shop.domain.value_object.MealId;
+import com.alex788.restaurant.shop.domain.menu.invariant.MealNameIsUnique;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealId;
 import com.alex788.restaurant.shop.postgres_persistence.PostgresMealIdGenerator;
 import com.alex788.restaurant.shop.postgres_persistence.PostgresMealRepository;
 import com.alex788.restaurant.shop.rest.endpoint.add_meal_to_menu.AddMealToMenuEndpoint;

@@ -1,4 +1,4 @@
-package com.alex788.restaurant.shop.domain.value_object;
+package com.alex788.restaurant.shop.domain.menu.value_object;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

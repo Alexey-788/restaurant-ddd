@@ -1,11 +1,11 @@
 package com.alex788.restaurant.shop.postgres_persistence;
 
-import com.alex788.restaurant.shop.domain.Meal;
-import com.alex788.restaurant.shop.domain.MealRestorer;
-import com.alex788.restaurant.shop.domain.value_object.MealDescription;
-import com.alex788.restaurant.shop.domain.value_object.MealId;
-import com.alex788.restaurant.shop.domain.value_object.MealName;
-import com.alex788.restaurant.shop.domain.value_object.MealPrice;
+import com.alex788.restaurant.shop.domain.menu.Meal;
+import com.alex788.restaurant.shop.domain.menu.MealRestorer;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealDescription;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealId;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealName;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealPrice;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.math.BigDecimal;

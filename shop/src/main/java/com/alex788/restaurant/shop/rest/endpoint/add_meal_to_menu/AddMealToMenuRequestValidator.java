@@ -1,11 +1,11 @@
 package com.alex788.restaurant.shop.rest.endpoint.add_meal_to_menu;
 
-import com.alex788.restaurant.shop.domain.value_object.MealDescription;
-import com.alex788.restaurant.shop.domain.value_object.MealName;
-import com.alex788.restaurant.shop.domain.value_object.MealPrice;
-import com.alex788.restaurant.shop.domain.value_object.error.MealDescriptionError;
-import com.alex788.restaurant.shop.domain.value_object.error.MealNameError;
-import com.alex788.restaurant.shop.domain.value_object.error.MealPriceError;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealDescription;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealName;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealPrice;
+import com.alex788.restaurant.shop.domain.menu.value_object.error.MealDescriptionError;
+import com.alex788.restaurant.shop.domain.menu.value_object.error.MealNameError;
+import com.alex788.restaurant.shop.domain.menu.value_object.error.MealPriceError;
 import com.alex788.restaurant.shop.rest.model.ErrorMessage;
 import com.alex788.restaurant.shop.usecase.AddMealToMenu;
 import io.vavr.control.Either;

@@ -1,9 +1,9 @@
 package com.alex788.restaurant.shop.usecase;
 
-import com.alex788.restaurant.shop.domain.value_object.MealDescription;
-import com.alex788.restaurant.shop.domain.value_object.MealId;
-import com.alex788.restaurant.shop.domain.value_object.MealName;
-import com.alex788.restaurant.shop.domain.value_object.MealPrice;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealDescription;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealId;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealName;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealPrice;
 import com.alex788.restaurant.shop.usecase.error.AddMealToMenuUseCaseError;
 import io.vavr.control.Either;
 import lombok.AllArgsConstructor;

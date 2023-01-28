@@ -1,11 +1,11 @@
-package com.alex788.restaurant.shop.domain;
+package com.alex788.restaurant.shop.domain.menu;
 
-import com.alex788.restaurant.shop.domain.error.AddMealToMenuError;
-import com.alex788.restaurant.shop.domain.invariant.MealNameIsUnique;
-import com.alex788.restaurant.shop.domain.value_object.MealDescription;
-import com.alex788.restaurant.shop.domain.value_object.MealId;
-import com.alex788.restaurant.shop.domain.value_object.MealName;
-import com.alex788.restaurant.shop.domain.value_object.MealPrice;
+import com.alex788.restaurant.shop.domain.menu.error.AddMealToMenuError;
+import com.alex788.restaurant.shop.domain.menu.invariant.MealNameIsUnique;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealDescription;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealId;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealName;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealPrice;
 import io.vavr.control.Either;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -15,10 +15,10 @@ import lombok.Getter;
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 public class Meal {
 
-    private MealId id;
-    private MealName name;
-    private MealDescription description;
-    private MealPrice price;
+    private final MealId id;
+    private final MealName name;
+    private final MealDescription description;
+    private final MealPrice price;
 
     public static Either<AddMealToMenuError, Meal> addToMenu(
             MealId.MealIdGenerator idGenerator,

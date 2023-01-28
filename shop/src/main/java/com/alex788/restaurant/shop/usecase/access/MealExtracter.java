@@ -1,8 +1,8 @@
 package com.alex788.restaurant.shop.usecase.access;
 
-import com.alex788.restaurant.shop.domain.Meal;
-import com.alex788.restaurant.shop.domain.value_object.MealId;
-import com.alex788.restaurant.shop.domain.value_object.MealName;
+import com.alex788.restaurant.shop.domain.menu.Meal;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealId;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealName;
 
 import java.util.List;
 import java.util.Optional;

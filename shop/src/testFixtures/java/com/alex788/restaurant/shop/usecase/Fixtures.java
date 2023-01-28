@@ -1,6 +1,6 @@
 package com.alex788.restaurant.shop.usecase;
 
-import com.alex788.restaurant.shop.domain.Meal;
+import com.alex788.restaurant.shop.domain.menu.Meal;
 import com.alex788.restaurant.shop.usecase.access.MealPersister;
 
 import java.util.ArrayList;

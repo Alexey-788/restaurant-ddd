@@ -1,6 +1,6 @@
 package com.alex788.restaurant.shop.postgres_persistence;
 
-import com.alex788.restaurant.shop.domain.Meal;
+import com.alex788.restaurant.shop.domain.menu.Meal;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 

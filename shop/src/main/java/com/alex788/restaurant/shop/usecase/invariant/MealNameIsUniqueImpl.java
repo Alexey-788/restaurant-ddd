@@ -1,7 +1,7 @@
 package com.alex788.restaurant.shop.usecase.invariant;
 
-import com.alex788.restaurant.shop.domain.invariant.MealNameIsUnique;
-import com.alex788.restaurant.shop.domain.value_object.MealName;
+import com.alex788.restaurant.shop.domain.menu.invariant.MealNameIsUnique;
+import com.alex788.restaurant.shop.domain.menu.value_object.MealName;
 import com.alex788.restaurant.shop.usecase.access.MealExtracter;
 import lombok.AllArgsConstructor;
 

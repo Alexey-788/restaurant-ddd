@@ -1,4 +1,4 @@
-package com.alex788.restaurant.shop.domain.value_object.error;
+package com.alex788.restaurant.shop.domain.menu.value_object.error;
 
 import com.alex788.restaurant.common.error.DomainError;
 
