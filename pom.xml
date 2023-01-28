@@ -8,7 +8,7 @@
 
     <modules>
         <module>main</module>
-        <module>menu</module>
+        <module>shop</module>
         <module>common</module>
     </modules>
 

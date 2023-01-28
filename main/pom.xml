@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>com.alex788.restaurant.meal</groupId>
-            <artifactId>menu</artifactId>
+            <artifactId>shop</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

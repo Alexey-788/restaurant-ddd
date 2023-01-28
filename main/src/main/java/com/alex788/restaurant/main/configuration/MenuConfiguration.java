@@ -1,21 +1,21 @@
 package com.alex788.restaurant.main.configuration;
 
-import com.alex788.restaurant.menu.domain.invariant.MealNameIsUnique;
-import com.alex788.restaurant.menu.domain.value_object.MealId;
-import com.alex788.restaurant.menu.postgres_persistence.PostgresMealIdGenerator;
-import com.alex788.restaurant.menu.postgres_persistence.PostgresMealRepository;
-import com.alex788.restaurant.menu.rest.endpoint.add_meal_to_menu.AddMealToMenuEndpoint;
-import com.alex788.restaurant.menu.rest.endpoint.get_all_menu.GetAllMenuEndpoint;
-import com.alex788.restaurant.menu.rest.endpoint.get_meal_by_id.GetMealByIdEndpoint;
-import com.alex788.restaurant.menu.usecase.AddMealToMenu;
-import com.alex788.restaurant.menu.usecase.GetAllMenu;
-import com.alex788.restaurant.menu.usecase.GetMealById;
-import com.alex788.restaurant.menu.usecase.access.MealExtracter;
-import com.alex788.restaurant.menu.usecase.access.MealPersister;
-import com.alex788.restaurant.menu.usecase.invariant.MealNameIsUniqueImpl;
-import com.alex788.restaurant.menu.usecase.scenario.AddMealToMenuUseCase;
-import com.alex788.restaurant.menu.usecase.scenario.GetAllMenuUseCase;
-import com.alex788.restaurant.menu.usecase.scenario.GetMealByIdUseCase;
+import com.alex788.restaurant.shop.domain.invariant.MealNameIsUnique;
+import com.alex788.restaurant.shop.domain.value_object.MealId;
+import com.alex788.restaurant.shop.postgres_persistence.PostgresMealIdGenerator;
+import com.alex788.restaurant.shop.postgres_persistence.PostgresMealRepository;
+import com.alex788.restaurant.shop.rest.endpoint.add_meal_to_menu.AddMealToMenuEndpoint;
+import com.alex788.restaurant.shop.rest.endpoint.get_all_menu.GetAllMenuEndpoint;
+import com.alex788.restaurant.shop.rest.endpoint.get_meal_by_id.GetMealByIdEndpoint;
+import com.alex788.restaurant.shop.usecase.AddMealToMenu;
+import com.alex788.restaurant.shop.usecase.GetAllMenu;
+import com.alex788.restaurant.shop.usecase.GetMealById;
+import com.alex788.restaurant.shop.usecase.access.MealExtracter;
+import com.alex788.restaurant.shop.usecase.access.MealPersister;
+import com.alex788.restaurant.shop.usecase.invariant.MealNameIsUniqueImpl;
+import com.alex788.restaurant.shop.usecase.scenario.AddMealToMenuUseCase;
+import com.alex788.restaurant.shop.usecase.scenario.GetAllMenuUseCase;
+import com.alex788.restaurant.shop.usecase.scenario.GetMealByIdUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
