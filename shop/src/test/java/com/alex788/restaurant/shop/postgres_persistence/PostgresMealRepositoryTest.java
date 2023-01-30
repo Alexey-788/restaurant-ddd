@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import static com.alex788.restaurant.shop.domain.Fixtures.*;
+import static com.alex788.restaurant.shop.domain.menu.Fixtures.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringJUnitConfig(classes = {TestConfiguration.class})

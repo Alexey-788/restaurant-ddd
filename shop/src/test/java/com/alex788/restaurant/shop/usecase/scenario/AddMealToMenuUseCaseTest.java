@@ -8,7 +8,7 @@ import io.vavr.control.Either;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static com.alex788.restaurant.shop.domain.Fixtures.*;
+import static com.alex788.restaurant.shop.domain.menu.Fixtures.*;
 import static com.alex788.restaurant.shop.usecase.Fixtures.TestMealPersister;
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
-import static com.alex788.restaurant.shop.domain.Fixtures.mealId;
-import static com.alex788.restaurant.shop.domain.Fixtures.newMeal;
+import static com.alex788.restaurant.shop.domain.menu.Fixtures.mealId;
+import static com.alex788.restaurant.shop.domain.menu.Fixtures.newMeal;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;

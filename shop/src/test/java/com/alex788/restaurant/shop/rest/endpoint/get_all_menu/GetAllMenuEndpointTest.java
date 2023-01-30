@@ -19,7 +19,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.alex788.restaurant.shop.domain.Fixtures.newMeal;
+import static com.alex788.restaurant.shop.domain.menu.Fixtures.newMeal;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
